@@ -12,5 +12,5 @@ if (!is_numeric($postcode) || strlen($postcode) !== 4 || $postcode < 1000 || $po
 
 ?>
 <div <?php echo $block_wrapper_attributes; ?>>
-	<div class="<?php echo $classname_default; ?>__wrapper" data-postcode="<?php echo $postcode; ?>"></div>
+	<div class="<?php echo $classname_default; ?>__wrapper" data-gemport-search data-postcode="<?php echo $postcode; ?>"></div>
 </div>

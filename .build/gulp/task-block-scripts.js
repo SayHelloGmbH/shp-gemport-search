@@ -53,9 +53,6 @@ export const task = (config) => {
 					output: {
 						filename: '[name].js',
 					},
-					externals: {
-						jquery: 'jQuery',
-					},
 					plugins: [new DependencyExtractionWebpackPlugin()],
 				})
 			)

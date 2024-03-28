@@ -19,10 +19,11 @@
 	},
 	"supports": {
 		"align": ["wide", "full"],
-		"html": false
+		"html": false,
+		"multiple": false
 	},
 	"editorScript": "file:./assets/dist/scripts/editor.js",
-	"script": "file:./assets/dist/scripts/view.min.js",
+	"script": "file:./assets/dist/scripts/view.js",
 	"style": ["file:./assets/dist/styles/shared/index.min.css"],
 	"render": "./render.php"
 }
