@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=window.wp.blocks,o=window.wp.blockEditor,r=(window.wp.i18n,JSON.parse('{"name":"shp/gemport-search"}')),{name:t}=r;(0,e.registerBlockType)(t,{edit:()=>{const e=(0,o.useBlockProps)();return React.createElement("div",e,"Hello World!")}})})();
