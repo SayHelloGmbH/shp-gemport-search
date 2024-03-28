@@ -2,10 +2,10 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "shp/gemport-search",
-	"title": "TITLE",
+	"title": "Offers from the Gemport API",
 	"category": "widgets",
 	"icon": "database",
-	"description": "DESCRIPTION.",
+	"description": "Dynamic search form and results list, which draws data from the Gemport API.",
 	"keywords": ["offer", "angebot"],
 	"textdomain": "shp_gemport_search",
 	"attributes": {

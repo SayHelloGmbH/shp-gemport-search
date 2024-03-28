@@ -1,12 +1,12 @@
 <?php
 /*
- * Plugin Name:       TITLE
- * Plugin URI:        https://bitbucket.org/sayhellogmbh/PLUGIN_KEY/
- * Description:       DESCRIPTION
+ * Plugin Name:       Offers from the Gemport API
+ * Plugin URI:        https://bitbucket.org/sayhellogmbh/shp-gemport-search/
+ * Description:       Dynamic search form and results list, which draws data from the Gemport API.
  * Author:            Say Hello GmbH
  * Version:           0.0.0
  * Author URI:        https://sayhello.ch/
- * Text Domain:       shp_gemport
+ * Text Domain:       shp_gemport_search
  * Domain Path:       /languages
  * Requires at least: 6.4.3
  * Requires PHP:      8.1
