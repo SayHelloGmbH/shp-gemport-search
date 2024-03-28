@@ -11,6 +11,10 @@
 	"attributes": {
 		"align": {
 			"type": "string"
+		},
+		"postcode": {
+			"type": "number",
+			"default": 1000
 		}
 	},
 	"supports": {
@@ -18,6 +22,7 @@
 		"html": false
 	},
 	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"script": "file:./assets/dist/scripts/view.min.js",
 	"style": ["file:./assets/dist/styles/shared/index.min.css"],
 	"render": "./render.php"
 }
