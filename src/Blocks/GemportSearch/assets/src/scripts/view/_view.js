@@ -1,13 +1,17 @@
-import { useEffect } from '@wordpress/element';
+import { useContext, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 import { useApiGet, apiStates } from './_api';
 import { Button, Buttons } from './_button';
+import { AppContext } from './_context';
 import { toggleThemeSelection } from './_functions';
 
-export const FormView = ({ element, data, selectedThemes, setSelectedThemes, setListData, setViewMode, listEndpoint }) => {
-	const { classNameBase } = element.dataset;
+export const FormView = () => {
 	const [apiData, fetchData] = useApiGet();
+
+	const context = useContext(AppContext);
+
+	const { classNameBase, data, dataSearch, selectedThemes, setDataSearch, setSelectedThemes, setListData, setViewMode, listEndpoint } = context;
 
 	const fetchListData = () => {
 		fetchData(listEndpoint);
@@ -29,7 +33,13 @@ export const FormView = ({ element, data, selectedThemes, setSelectedThemes, set
 	}, [apiData]);
 
 	return (
-		<form className={`${classNameBase}__form`}>
+		<form
+			className={`${classNameBase}__form`}
+			onSubmit={(event) => {
+				event.preventDefault();
+				fetchListData();
+			}}
+		>
 			<div className={`${classNameBase}__form-inner`}>
 				<ul className={`${classNameBase}__entries`}>
 					{data.map((entry) => (
@@ -52,6 +62,12 @@ export const FormView = ({ element, data, selectedThemes, setSelectedThemes, set
 					))}
 				</ul>
 				<Buttons classNameBase={classNameBase}>
+					<input
+						value={dataSearch}
+						className={`${classNameBase}__searchfield`}
+						onChange={(event) => setDataSearch(event.currentTarget.value)}
+						placeholder={__('Optional search text', 'shp_gemport_search')}
+					/>
 					<Button classNameBase={classNameBase} buttonKey="search" onClick={fetchListData} label={__('Search offers', 'shp_gemport_search')} />
 				</Buttons>
 			</div>
@@ -59,8 +75,9 @@ export const FormView = ({ element, data, selectedThemes, setSelectedThemes, set
 	);
 };
 
-export const ListView = (props) => {
-	const { data, classNameBase, setViewMode } = props;
+export const ListView = () => {
+	const context = useContext(AppContext);
+	const { data, classNameBase, setViewMode } = context;
 
 	const BackButton = () => {
 		return (
@@ -100,9 +117,11 @@ export const ListView = (props) => {
 									contact.push(<a href={`mailto:${entry.contact_email}`}>{entry.contact_email}</a>);
 								}
 
+								console.log(entry);
+
 								return (
 									<li key={entry.id} className={`${classNameBase}__list-entry ${classNameBase}__list-entry--${entry.id}`}>
-										{entry.name && (
+										{!!entry.name && (
 											<>
 												{entry.url && (
 													<h3
@@ -123,7 +142,7 @@ export const ListView = (props) => {
 												)}
 											</>
 										)}
-										{entry.logo && (
+										{!!entry.logo && (
 											<figure className={`wp-block-image ${classNameBase}__list-entry-figure`}>
 												{!!entry.url && (
 													<a
@@ -146,13 +165,13 @@ export const ListView = (props) => {
 												)}
 											</figure>
 										)}
-										{entry.description && (
+										{!!entry.description && (
 											<div
 												className={`${classNameBase}__list-entry-description ${classNameBase}__list-entry-description--${entry.id}`}
 												dangerouslySetInnerHTML={{ __html: entry.description }}
 											/>
 										)}
-										{contact.length && (
+										{!!contact.length && (
 											<div className={`${classNameBase}__list-entry-contact ${classNameBase}__list-entry-contact--${entry.id}`}>
 												<span
 													className={`${classNameBase}__list-entry-contact-label ${classNameBase}__list-entry-contact-label--${entry.id}`}

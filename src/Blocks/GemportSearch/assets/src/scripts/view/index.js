@@ -6,10 +6,6 @@ import { apiGet, apiStates } from './_api';
 import { ListView, FormView } from './_view';
 
 const App = ({ element }) => {
-	const context = {
-		element,
-	};
-
 	const { classNameBase, generation, postcode } = element.dataset;
 
 	const [dataPostcode] = useState(postcode || '');
@@ -36,6 +32,23 @@ const App = ({ element }) => {
 
 	const { data, error, state } = apiGet(themesEndpoint);
 
+	const context = {
+		classNameBase,
+		element,
+		data,
+		dataPostcode,
+		dataSearch,
+		listData,
+		listEndpoint,
+		selectedThemes,
+		setDataSearch,
+		setListData,
+		setSelectedThemes,
+		setViewMode,
+		themesEndpoint,
+		viewMode,
+	};
+
 	if (state === apiStates.LOADING) {
 		return '';
 	}
@@ -47,19 +60,8 @@ const App = ({ element }) => {
 	return (
 		<AppContext.Provider value={context}>
 			<div className={`${classNameBase}__inner`}>
-				{viewMode === 'form' && (
-					<FormView
-						classNameBase={classNameBase}
-						element={element}
-						data={data}
-						listEndpoint={listEndpoint}
-						selectedThemes={selectedThemes}
-						setListData={setListData}
-						setSelectedThemes={setSelectedThemes}
-						setViewMode={setViewMode}
-					/>
-				)}
-				{viewMode === 'list' && <ListView classNameBase={classNameBase} data={listData} setViewMode={setViewMode} />}
+				{viewMode === 'form' && <FormView />}
+				{viewMode === 'list' && <ListView />}
 			</div>
 		</AppContext.Provider>
 	);
