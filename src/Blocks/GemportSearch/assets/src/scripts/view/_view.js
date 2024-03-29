@@ -77,7 +77,7 @@ export const FormView = () => {
 
 export const ListView = () => {
 	const context = useContext(AppContext);
-	const { data, classNameBase, setViewMode } = context;
+	const { listData, classNameBase, setViewMode } = context;
 
 	const BackButton = () => {
 		return (
@@ -95,18 +95,18 @@ export const ListView = () => {
 	return (
 		<div className={`${classNameBase}__list`}>
 			<div className={`${classNameBase}__list-inner`}>
-				{!data?.length && (
+				{!listData?.length && (
 					<div
 						className={`${classNameBase}__list-empty`}
 						dangerouslySetInnerHTML={{ __html: __('No matching offers found', 'shp_gemport_search') }}
 					/>
 				)}
 
-				{!!data?.length && (
+				{!!listData?.length && (
 					<>
 						<BackButton />
 						<ul className={`${classNameBase}__list-entries`}>
-							{data.map((entry) => {
+							{listData.map((entry) => {
 								let contact = [];
 
 								if (entry.contact_tel) {
@@ -116,8 +116,6 @@ export const ListView = () => {
 								if (entry.contact_email) {
 									contact.push(<a href={`mailto:${entry.contact_email}`}>{entry.contact_email}</a>);
 								}
-
-								console.log(entry);
 
 								return (
 									<li key={entry.id} className={`${classNameBase}__list-entry ${classNameBase}__list-entry--${entry.id}`}>
