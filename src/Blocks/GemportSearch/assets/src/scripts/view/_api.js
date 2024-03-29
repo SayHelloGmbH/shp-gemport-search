@@ -7,38 +7,6 @@ export const apiStates = {
 	ERROR: 'ERROR',
 };
 
-// export const apiPost = (url) => {
-// 	const [state, setState] = useState(apiStates.IDLE);
-// 	const [data, setData] = useState(null);
-// 	const doPost = (data, nonce) => {
-// 		setState(apiStates.LOADING);
-// 		fetch(url, {
-// 			method: 'POST',
-// 			headers: {
-// 				Accept: 'application/json',
-// 				'Content-Type': 'application/json',
-// 				'X-WP-Nonce': nonce,
-// 			},
-// 			body: JSON.stringify(data),
-// 		})
-// 			.then((response) => response.json())
-// 			.then((data) => {
-// 				setState(apiStates.SUCCESS);
-// 				setData(data);
-// 			})
-// 			.catch(() => {
-// 				setState(apiStates.ERROR);
-// 			});
-// 	};
-// 	return {
-// 		state,
-// 		data,
-// 		doPost,
-// 		setState,
-// 		setData,
-// 	};
-// };
-
 export const apiGet = (url) => {
 	const [api_data, setAPIData] = useState({
 		state: apiStates.LOADING,
@@ -84,4 +52,47 @@ export const apiGet = (url) => {
 	}, []);
 
 	return api_data;
+};
+
+export const useApiGet = () => {
+	const [data, setData] = useState({
+		state: apiStates.IDLE,
+		error: '',
+		data: [],
+		headers: {},
+	});
+
+	const fetchData = (url) => {
+		setData({ ...data, state: apiStates.LOADING });
+
+		fetch(url, {
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+		})
+			.then((response) => {
+				if (!response.ok) {
+					throw Error({
+						status: response.status,
+						text: response.statusText || '',
+					});
+				}
+				return response.json();
+			})
+			.then((json) => {
+				setData({
+					state: apiStates.SUCCESS,
+					data: json,
+				});
+			})
+			.catch((error) => {
+				setData({
+					state: apiStates.ERROR,
+					error: error.statusText || 'fetch failed',
+				});
+			});
+	};
+
+	return [data, fetchData];
 };
