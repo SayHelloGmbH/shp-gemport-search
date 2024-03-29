@@ -1,1 +1,38 @@
-// Add shared styles here
+:root {
+	--gemport-search--entry-gap: .5em;
+	--gemport-search--entries-gap: 1em;
+	--gemport-search--entries-columns: 2;
+	--gemport-search--inner-gap: 1em;
+}
+
+.wp-block-shp-gemport-search {
+
+	&__button-wrapper {
+		display: flex;
+		align-items: baseline;
+	}
+
+	&__entries {
+		list-style: none;
+		padding-left: 0;
+		display: inline-grid;
+		align-items: baseline;
+		grid-gap: var(--gemport-search--entries-gap);
+
+		@media screen and (min-width: 37.5em) {
+			grid-template-columns: repeat(var(--gemport-search--entries-columns), 1fr);
+		}
+	}
+
+	&__entry {
+		&-label {
+			display: inline-flex;
+			gap: var(--gemport-search--entry-gap);
+		}
+	}
+
+	&__form-inner {
+		display: inline-grid;
+		gap: var(--gemport-search--inner-gap);
+	}
+}
