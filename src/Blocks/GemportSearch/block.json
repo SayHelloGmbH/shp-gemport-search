@@ -12,6 +12,10 @@
 		"align": {
 			"type": "string"
 		},
+		"generation": {
+			"type": "number",
+			"default": 0
+		},
 		"postcode": {
 			"type": "number",
 			"default": 1000

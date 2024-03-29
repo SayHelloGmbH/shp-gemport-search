@@ -1,6 +1,6 @@
 import { getBlockDefaultClassName, registerBlockType } from '@wordpress/blocks';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { Panel, PanelBody, __experimentalNumberControl as NumberControl } from '@wordpress/components';
+import { Panel, PanelBody, __experimentalNumberControl as NumberControl, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 import block_json from '../../../../block.json';
@@ -13,7 +13,7 @@ registerBlockType(block_name, {
 	edit: (props) => {
 		const blockProps = useBlockProps();
 		const { setAttributes, attributes } = props;
-		const { postcode } = attributes;
+		const { generation, postcode } = attributes;
 
 		return (
 			<>
@@ -27,6 +27,15 @@ registerBlockType(block_name, {
 								min={1000}
 								max={9999}
 								required={false}
+							/>
+							<SelectControl
+								label={__('Generation', 'shp_gemport_search')}
+								value={generation}
+								onChange={(value) => setAttributes({ generation: value })}
+								options={[
+									{ label: __('No constraint', 'shp_gemport_search'), value: 0 },
+									{ label: '2', value: 2 },
+								]}
 							/>
 						</PanelBody>
 					</Panel>
