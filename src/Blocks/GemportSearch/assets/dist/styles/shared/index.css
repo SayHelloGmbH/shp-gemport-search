@@ -96,6 +96,7 @@
 @media screen and (min-width: 37.5em) {
   .wp-block-shp-gemport-search__list-entry-more {
     justify-self: end;
+    align-self: center;
   }
 }
 .wp-block-shp-gemport-search__list-entry-title {
