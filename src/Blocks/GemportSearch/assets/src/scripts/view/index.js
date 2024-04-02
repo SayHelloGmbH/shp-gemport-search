@@ -6,7 +6,7 @@ import { apiGet, apiStates } from './_api';
 import { ListView, FormView } from './_view';
 
 const App = ({ element }) => {
-	const { classNameBase, generation, postcode } = element.dataset;
+	const { classNameBase, generation, postcode, translations } = element.dataset;
 
 	const [dataPostcode] = useState(postcode || '');
 	const [dataSearch, setDataSearch] = useState('');
@@ -79,6 +79,7 @@ const App = ({ element }) => {
 		setSelectedThemes,
 		setViewMode,
 		themesEndpoint,
+		translations: JSON.parse(translations) || {},
 		viewMode,
 	};
 

@@ -11,7 +11,9 @@ export const FormView = () => {
 
 	const context = useContext(AppContext);
 
-	const { classNameBase, data, dataSearch, selectedThemes, setDataSearch, setSelectedThemes, setListData, setViewMode, listEndpoint } = context;
+	const { classNameBase, data, dataSearch, selectedThemes, setDataSearch, setSelectedThemes, setListData, setViewMode, listEndpoint, translations } = context;
+
+	console.warn(translations);
 
 	const fetchListData = () => {
 		fetchData(listEndpoint);
@@ -66,9 +68,9 @@ export const FormView = () => {
 						value={dataSearch}
 						className={`${classNameBase}__searchfield`}
 						onChange={(event) => setDataSearch(event.currentTarget.value)}
-						placeholder={__('Optional search text', 'shp_gemport_search')}
+						placeholder={translations.optional_search_text}
 					/>
-					<Button classNameBase={classNameBase} buttonKey="search" onClick={fetchListData} label={__('Search offers', 'shp_gemport_search')} />
+					<Button classNameBase={classNameBase} buttonKey="search" onClick={fetchListData} label={translations.search_offers} />
 				</Buttons>
 			</div>
 		</form>
@@ -77,17 +79,12 @@ export const FormView = () => {
 
 export const ListView = () => {
 	const context = useContext(AppContext);
-	const { listData, classNameBase, setViewMode } = context;
+	const { listData, classNameBase, translations, setViewMode } = context;
 
 	const BackButton = () => {
 		return (
 			<Buttons classNameBase={classNameBase}>
-				<Button
-					classNameBase={classNameBase}
-					buttonKey="back"
-					onClick={() => setViewMode('form')}
-					label={__('View search form', 'shp_gemport_search')}
-				/>
+				<Button classNameBase={classNameBase} buttonKey="back" onClick={() => setViewMode('form')} label={translations.view_search_form} />
 			</Buttons>
 		);
 	};
@@ -96,10 +93,7 @@ export const ListView = () => {
 		<div className={`${classNameBase}__list`}>
 			<div className={`${classNameBase}__list-inner`}>
 				{!listData?.length && (
-					<div
-						className={`${classNameBase}__list-empty`}
-						dangerouslySetInnerHTML={{ __html: __('No matching offers found', 'shp_gemport_search') }}
-					/>
+					<div className={`${classNameBase}__list-empty`} dangerouslySetInnerHTML={{ __html: translations.no_matching_offers_found }} />
 				)}
 
 				{!!listData?.length && (
@@ -174,7 +168,7 @@ export const ListView = () => {
 												<span
 													className={`${classNameBase}__list-entry-contact-label ${classNameBase}__list-entry-contact-label--${entry.id}`}
 												>
-													{__('Contact:', 'shp_gemport_search')}
+													{translations.contact_colon}
 												</span>
 												{contact.map((contactItem) => (
 													<span
@@ -192,7 +186,7 @@ export const ListView = () => {
 														classNameBase={classNameBase}
 														buttonKey="more"
 														url={entry.url}
-														label={__('More information', 'shp_gemport_search')}
+														label={translations.more_information}
 													/>
 												</Buttons>
 											</div>

@@ -57,5 +57,13 @@ spl_autoload_register(function ($class) {
 	}
 });
 
+// Function to load plugin translations
+function load_gemport_search_translations()
+{
+	load_plugin_textdomain('shp_gemport_search', false, dirname(plugin_basename(__FILE__)) . '/languages');
+}
+
+add_action('plugins_loaded', 'load_gemport_search_translations');
+
 $block_search = new SayHello\GemportSearch\Blocks\GemportSearch\Block();
 $block_search->run();
