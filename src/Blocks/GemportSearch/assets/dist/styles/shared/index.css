@@ -1,4 +1,4 @@
-:root {
+body {
   --gemport-search--entry-gap: 1em;
   --gemport-search--entries-gap: 1em;
   --gemport-search--entries-columns: 2;
@@ -9,20 +9,21 @@
   --gemport-search--list-entry-gap-y: 1em;
   --gemport-search--list-inner-gap: 1em;
   --gemport-search--list-image-width: 210px;
-  --gemport-search--sticky-top: 0;
-  --gemport-search--sticky--stuck-background: rgba(255, 255, 255, .8);
-  --gemport-search--sticky--stuck-background-blur: .5em;
-}
-:root body.admin-bar {
-  --gemport-search--sticky-top: var(--wp-admin--admin-bar--height);
+  --gemport-search--scroll-offset: 32px;
 }
 @media screen and (min-width: 37.5em) {
-  :root {
+  body {
     --gemport-search--list-entry-gap-x: 2em;
     --gemport-search--list-entry-gap-y: 1em;
   }
 }
+body.admin-bar {
+  --gemport-search--scroll-offset: calc(32px + var(--wp-admin--admin-bar--height));
+}
 
+.wp-block-shp-gemport-search {
+  scroll-margin-block-start: var(--gemport-search--scroll-offset);
+}
 .wp-block-shp-gemport-search__button-wrapper {
   display: flex;
   align-items: baseline;

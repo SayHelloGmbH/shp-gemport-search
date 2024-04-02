@@ -1,4 +1,4 @@
-:root {
+body {
 	--gemport-search--entry-gap: 1em;
 	--gemport-search--entries-gap: 1em;
 	--gemport-search--entries-columns: 2;
@@ -12,22 +12,20 @@
 	--gemport-search--list-inner-gap: 1em;
 	--gemport-search--list-image-width: 210px;
 
-	--gemport-search--sticky-top: 0;
-	--gemport-search--sticky--stuck-background: rgba(255, 255, 255, .8);
-	--gemport-search--sticky--stuck-background-blur: .5em;
+	--gemport-search--scroll-offset: 32px;
 
-	body.admin-bar {
-		--gemport-search--sticky-top: var(--wp-admin--admin-bar--height);
-	}
-
-	@media screen and (min-width:37.5em) {
+	@media screen and (min-width: 37.5em) {
 		--gemport-search--list-entry-gap-x: 2em;
 		--gemport-search--list-entry-gap-y: 1em;
+	}
+
+	&.admin-bar {
+		--gemport-search--scroll-offset: calc(32px + var(--wp-admin--admin-bar--height));
 	}
 }
 
 .wp-block-shp-gemport-search {
-
+	scroll-margin-block-start: var(--gemport-search--scroll-offset);
 	&__button-wrapper {
 		display: flex;
 		align-items: baseline;
@@ -59,7 +57,6 @@
 	}
 
 	&__list {
-
 		&-entries {
 			list-style: none;
 			padding-left: 0;
@@ -72,25 +69,24 @@
 			display: grid;
 			gap: var(--gemport-search--list-entry-gap-y) var(--gemport-search--list-entry-gap-x);
 			grid-template-areas:
-				"logo"
-				"title"
-				"description"
-				"contact"
-				"more";
+				'logo'
+				'title'
+				'description'
+				'contact'
+				'more';
 			grid-template-columns: 1fr;
 
-			@media screen and (min-width:37.5em) {
+			@media screen and (min-width: 37.5em) {
 				grid-template-areas:
-					"title title"
-					"description logo"
-					"contact more";
+					'title title'
+					'description logo'
+					'contact more';
 				grid-template-columns: 2fr 1fr;
 			}
 
-			@media screen and (min-width:48em) {
+			@media screen and (min-width: 48em) {
 				grid-template-columns: 2fr 13.125rem;
 			}
-
 
 			> :where(*) {
 				margin-top: 0;
@@ -118,7 +114,7 @@
 			&-more {
 				grid-area: more;
 
-				@media screen and (min-width:37.5em) {
+				@media screen and (min-width: 37.5em) {
 					justify-self: end;
 					align-self: center;
 				}
@@ -127,7 +123,7 @@
 			&-title {
 				grid-area: title;
 
-				@media screen and (min-width:37.5em) {
+				@media screen and (min-width: 37.5em) {
 					align-self: center;
 				}
 			}
@@ -141,7 +137,7 @@
 			&-value {
 				&:after {
 					content: '/';
-					margin-left: calc(var(--gemport-search--contact-gap)/2);
+					margin-left: calc(var(--gemport-search--contact-gap) / 2);
 				}
 
 				&:last-child:after {
