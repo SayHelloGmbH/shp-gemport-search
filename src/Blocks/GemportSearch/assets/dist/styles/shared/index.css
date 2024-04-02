@@ -1,0 +1,126 @@
+body {
+  --gemport-search--entry-gap: 1em;
+  --gemport-search--entries-gap: 1em;
+  --gemport-search--entries-columns: 2;
+  --gemport-search--inner-gap: 1em;
+  --gemport-search--contact-gap: 1ch;
+  --gemport-search--list-entries-gap: 2em;
+  --gemport-search--list-entry-gap-x: 1em;
+  --gemport-search--list-entry-gap-y: 1em;
+  --gemport-search--list-inner-gap: 1em;
+  --gemport-search--list-image-width: 210px;
+  --gemport-search--scroll-offset: 32px;
+}
+@media screen and (min-width: 37.5em) {
+  body {
+    --gemport-search--list-entry-gap-x: 2em;
+    --gemport-search--list-entry-gap-y: 1em;
+  }
+}
+body.admin-bar {
+  --gemport-search--scroll-offset: calc(32px + var(--wp-admin--admin-bar--height));
+}
+
+.wp-block-shp-gemport-search {
+  scroll-margin-block-start: var(--gemport-search--scroll-offset);
+}
+.wp-block-shp-gemport-search__button-wrapper {
+  display: flex;
+  align-items: baseline;
+}
+.wp-block-shp-gemport-search__entries {
+  list-style: none;
+  padding-left: 0;
+  display: inline-grid;
+  align-items: baseline;
+  grid-gap: var(--gemport-search--entries-gap);
+}
+@media screen and (min-width: 37.5em) {
+  .wp-block-shp-gemport-search__entries {
+    grid-template-columns: repeat(var(--gemport-search--entries-columns), 1fr);
+  }
+}
+.wp-block-shp-gemport-search__entry-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--gemport-search--entry-gap);
+}
+.wp-block-shp-gemport-search__form-inner {
+  display: inline-grid;
+  gap: var(--gemport-search--inner-gap);
+}
+.wp-block-shp-gemport-search__list-entries {
+  list-style: none;
+  padding-left: 0;
+  display: inline-grid;
+  align-items: baseline;
+  grid-gap: var(--gemport-search--list-entries-gap);
+}
+.wp-block-shp-gemport-search__list-entry {
+  display: grid;
+  gap: var(--gemport-search--list-entry-gap-y) var(--gemport-search--list-entry-gap-x);
+  grid-template-areas: "logo" "title" "description" "contact" "more";
+  grid-template-columns: 1fr;
+}
+@media screen and (min-width: 37.5em) {
+  .wp-block-shp-gemport-search__list-entry {
+    grid-template-areas: "title title" "description logo" "contact more";
+    grid-template-columns: 2fr 1fr;
+  }
+}
+@media screen and (min-width: 48em) {
+  .wp-block-shp-gemport-search__list-entry {
+    grid-template-columns: 2fr 13.125rem;
+  }
+}
+.wp-block-shp-gemport-search__list-entry > :where(*) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.wp-block-shp-gemport-search__list-entry-contact {
+  grid-area: contact;
+}
+.wp-block-shp-gemport-search__list-entry-description {
+  grid-area: description;
+}
+.wp-block-shp-gemport-search__list-entry-figure {
+  grid-area: logo;
+}
+.wp-block-shp-gemport-search__list-entry-image {
+  width: 100%;
+  height: auto;
+  max-width: var(--gemport-search--list-image-width);
+}
+.wp-block-shp-gemport-search__list-entry-more {
+  grid-area: more;
+}
+@media screen and (min-width: 37.5em) {
+  .wp-block-shp-gemport-search__list-entry-more {
+    justify-self: end;
+    align-self: center;
+  }
+}
+.wp-block-shp-gemport-search__list-entry-title {
+  grid-area: title;
+}
+@media screen and (min-width: 37.5em) {
+  .wp-block-shp-gemport-search__list-entry-title {
+    align-self: center;
+  }
+}
+.wp-block-shp-gemport-search__list-entry-contact {
+  display: flex;
+  gap: var(--gemport-search--contact-gap);
+  flex-wrap: wrap;
+}
+.wp-block-shp-gemport-search__list-entry-contact-value:after {
+  content: "/";
+  margin-left: calc(var(--gemport-search--contact-gap) / 2);
+}
+.wp-block-shp-gemport-search__list-entry-contact-value:last-child:after {
+  content: "";
+}
+.wp-block-shp-gemport-search__list-inner {
+  display: grid;
+  gap: var(--gemport-search--list-inner-gap);
+}

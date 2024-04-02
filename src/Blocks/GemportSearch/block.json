@@ -2,22 +2,32 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "shp/gemport-search",
-	"title": "TITLE",
+	"title": "Offers from the Gemport API",
 	"category": "widgets",
 	"icon": "database",
-	"description": "DESCRIPTION.",
+	"description": "Dynamic search form and results list, which draws data from the Gemport API.",
 	"keywords": ["offer", "angebot"],
 	"textdomain": "shp_gemport_search",
 	"attributes": {
 		"align": {
 			"type": "string"
+		},
+		"generation": {
+			"type": "number",
+			"default": 0
+		},
+		"postcode": {
+			"type": "number",
+			"default": 1000
 		}
 	},
 	"supports": {
 		"align": ["wide", "full"],
-		"html": false
+		"html": false,
+		"multiple": false
 	},
 	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"script": "file:./assets/dist/scripts/view.js",
 	"style": ["file:./assets/dist/styles/shared/index.min.css"],
 	"render": "./render.php"
 }

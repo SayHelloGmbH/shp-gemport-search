@@ -1,0 +1,83 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Offers from the Gemport API\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-02 15:58+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Say Hello GmbH <hello@sayhello.ch>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.7; wp-6.4.3\n"
+"X-Domain: shp_gemport_search"
+
+#: src/Blocks/GemportSearch/block.json:1
+msgctxt "block description"
+msgid ""
+"Dynamic search form and results list, which draws data from the Gemport API."
+msgstr ""
+
+#: src/Blocks/GemportSearch/block.json:1
+msgctxt "block keyword"
+msgid "angebot"
+msgstr ""
+
+#: src/Blocks/GemportSearch/block.json:1
+msgctxt "block keyword"
+msgid "offer"
+msgstr ""
+
+#: src/Blocks/GemportSearch/block.json:1
+msgctxt "block title"
+msgid "Offers from the Gemport API"
+msgstr ""
+
+#: src/Blocks/GemportSearch/render.php:15
+msgid "Contact:"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Dynamic search form and results list, which draws data from the Gemport API."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://bitbucket.org/sayhellogmbh/shp-gemport-search/"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://sayhello.ch/"
+msgstr ""
+
+#: src/Blocks/GemportSearch/render.php:16
+msgid "More information"
+msgstr ""
+
+#: src/Blocks/GemportSearch/render.php:17
+msgid "No matching offers found"
+msgstr ""
+
+#. Name of the plugin
+msgid "Offers from the Gemport API"
+msgstr ""
+
+#: src/Blocks/GemportSearch/render.php:18
+msgid "Optional search text"
+msgstr ""
+
+#. Author of the plugin
+msgid "Say Hello GmbH"
+msgstr ""
+
+#: src/Blocks/GemportSearch/render.php:19
+msgid "Search offers"
+msgstr ""
+
+#: src/Blocks/GemportSearch/render.php:20
+msgid "View search form"
+msgstr ""

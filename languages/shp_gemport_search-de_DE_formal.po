@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Offers from the Gemport API\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-02 15:58+0000\n"
+"PO-Revision-Date: 2024-04-02 16:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German (Formal)\n"
+"Language: de_DE_formal\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.7; wp-6.4.3\n"
+"X-Domain: shp_gemport_search"
+
+#: src/Blocks/GemportSearch/block.json:1
+msgctxt "block description"
+msgid ""
+"Dynamic search form and results list, which draws data from the Gemport API."
+msgstr ""
+"Dynamisches Suchformular und Ergebnisliste, die Daten aus der Gemport-API "
+"bezieht."
+
+#: src/Blocks/GemportSearch/block.json:1
+msgctxt "block keyword"
+msgid "angebot"
+msgstr "angebot"
+
+#: src/Blocks/GemportSearch/block.json:1
+msgctxt "block keyword"
+msgid "offer"
+msgstr "angebot"
+
+#: src/Blocks/GemportSearch/block.json:1
+msgctxt "block title"
+msgid "Offers from the Gemport API"
+msgstr "Angebote der Gemport API"
+
+#: src/Blocks/GemportSearch/render.php:15
+msgid "Contact:"
+msgstr "Kontakt:"
+
+#. Description of the plugin
+msgid ""
+"Dynamic search form and results list, which draws data from the Gemport API."
+msgstr ""
+"Dynamisches Suchformular und Ergebnisliste, die Daten aus der Gemport-API "
+"bezieht."
+
+#. URI of the plugin
+msgid "https://bitbucket.org/sayhellogmbh/shp-gemport-search/"
+msgstr "https://bitbucket.org/sayhellogmbh/shp-gemport-search/"
+
+#. Author URI of the plugin
+msgid "https://sayhello.ch/"
+msgstr "https://sayhello.ch/"
+
+#: src/Blocks/GemportSearch/render.php:16
+msgid "More information"
+msgstr "Weitere Information"
+
+#: src/Blocks/GemportSearch/render.php:17
+msgid "No matching offers found"
+msgstr "Keine zutreffende Angebote gefunden"
+
+#. Name of the plugin
+msgid "Offers from the Gemport API"
+msgstr "Angebote der Gemport API"
+
+#: src/Blocks/GemportSearch/render.php:18
+msgid "Optional search text"
+msgstr "Optionaler Suchbegriff"
+
+#. Author of the plugin
+msgid "Say Hello GmbH"
+msgstr "Say Hello GmbH"
+
+#: src/Blocks/GemportSearch/render.php:19
+msgid "Search offers"
+msgstr "Angebote durchsuchen"
+
+#: src/Blocks/GemportSearch/render.php:20
+msgid "View search form"
+msgstr "Suchformular anzeigen"
