@@ -23,7 +23,7 @@ registerBlockType(block_name, {
 							<NumberControl
 								label={__('Postcode', 'shp_gemport_search')}
 								value={postcode}
-								onChange={(value) => setAttributes({ postcode: value })}
+								onChange={(value) => setAttributes({ postcode: parseInt(value) })}
 								min={1000}
 								max={9999}
 								required={false}
@@ -31,7 +31,7 @@ registerBlockType(block_name, {
 							<SelectControl
 								label={__('Generation', 'shp_gemport_search')}
 								value={generation}
-								onChange={(value) => setAttributes({ generation: value })}
+								onChange={(value) => setAttributes({ generation: parseInt(value) })}
 								options={[
 									{ label: __('No constraint', 'shp_gemport_search'), value: 0 },
 									{ label: '2', value: 2 },
