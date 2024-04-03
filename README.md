@@ -1,10 +1,8 @@
-# Custom block plugin with build process
+# Offers from the Gemport API
 
 ## Description
 
-This is the basis code which runs as a WordPress plugin and which registers a custom block for the Block Editor.
-
-The block in this example code simply outputs a "Hello World" message. It is intended as a basis for onward development.
+Dynamic search form and results list, which draws data from the Gemport API.
 
 ## Usage
 
