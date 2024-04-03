@@ -4,7 +4,7 @@
  * Plugin URI:        https://bitbucket.org/sayhellogmbh/shp-gemport-search/
  * Description:       Dynamic search form and results list, which draws data from the Gemport API.
  * Author:            Say Hello GmbH
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author URI:        https://sayhello.ch/
  * Text Domain:       shp_gemport_search
  * Domain Path:       /languages
@@ -58,12 +58,21 @@ spl_autoload_register(function ($class) {
 });
 
 // Function to load plugin translations
+// Caution, different path definition than for the editor
 function load_gemport_search_translations()
 {
 	load_plugin_textdomain('shp_gemport_search', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
-
 add_action('plugins_loaded', 'load_gemport_search_translations');
+
+// Load editor (JS) translations
+// Caution, different path definition than for the frontend
+function gemport_set_script_translations()
+{
+	$script_handle = generate_block_asset_handle('shp/gemport-search', 'editorScript');
+	wp_set_script_translations($script_handle, 'shp_gemport_search', plugin_dir_path(__FILE__) . 'languages');
+}
+add_action('init', 'gemport_set_script_translations', 100);
 
 $block_search = new SayHello\GemportSearch\Blocks\GemportSearch\Block();
 $block_search->run();

@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Offers from the Gemport API\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-02 15:58+0000\n"
-"PO-Revision-Date: 2024-04-02 16:00+0000\n"
+"PO-Revision-Date: 2024-04-03 13:45+0000\n"
 "Last-Translator: \n"
-"Language-Team: German (Formal)\n"
+"Language-Team: Deutsch (Sie)\n"
 "Language: de_DE_formal\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.6.7; wp-6.4.3\n"
 "X-Domain: shp_gemport_search"
 
-#: src/Blocks/GemportSearch/block.json:1
+#: src/Blocks/GemportSearch/block.json
 msgctxt "block description"
 msgid ""
 "Dynamic search form and results list, which draws data from the Gemport API."
@@ -23,17 +23,17 @@ msgstr ""
 "Dynamisches Suchformular und Ergebnisliste, die Daten aus der Gemport-API "
 "bezieht."
 
-#: src/Blocks/GemportSearch/block.json:1
+#: src/Blocks/GemportSearch/block.json
 msgctxt "block keyword"
 msgid "angebot"
 msgstr "angebot"
 
-#: src/Blocks/GemportSearch/block.json:1
+#: src/Blocks/GemportSearch/block.json
 msgctxt "block keyword"
 msgid "offer"
 msgstr "angebot"
 
-#: src/Blocks/GemportSearch/block.json:1
+#: src/Blocks/GemportSearch/block.json
 msgctxt "block title"
 msgid "Offers from the Gemport API"
 msgstr "Angebote der Gemport API"
@@ -49,7 +49,17 @@ msgstr ""
 "Dynamisches Suchformular und Ergebnisliste, die Daten aus der Gemport-API "
 "bezieht."
 
-#. URI of the plugin
+#: src/Blocks/GemportSearch/assets/dist/scripts/editor.js:1
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:21
+msgid "Gemport Search/List Settings"
+msgstr "Gemport Suche/Listeneinstellungen"
+
+#: src/Blocks/GemportSearch/assets/dist/scripts/editor.js:1
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:32
+msgid "Generation"
+msgstr "Generation"
+
+#. Plugin URI of the plugin
 msgid "https://bitbucket.org/sayhellogmbh/shp-gemport-search/"
 msgstr "https://bitbucket.org/sayhellogmbh/shp-gemport-search/"
 
@@ -61,17 +71,32 @@ msgstr "https://sayhello.ch/"
 msgid "More information"
 msgstr "Weitere Information"
 
+#: src/Blocks/GemportSearch/assets/dist/scripts/editor.js:1
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:36
+msgid "No constraint"
+msgstr "Keine EInschränkung"
+
 #: src/Blocks/GemportSearch/render.php:17
 msgid "No matching offers found"
 msgstr "Keine zutreffende Angebote gefunden"
 
-#. Name of the plugin
+#. Plugin Name of the plugin
 msgid "Offers from the Gemport API"
 msgstr "Angebote der Gemport API"
 
 #: src/Blocks/GemportSearch/render.php:18
 msgid "Optional search text"
 msgstr "Optionaler Suchbegriff"
+
+#: src/Blocks/GemportSearch/assets/dist/scripts/editor.js:1
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:46
+msgid "Placeholder for the Gemport search/list"
+msgstr "Platzhalter für das Gemport-Widget"
+
+#: src/Blocks/GemportSearch/assets/dist/scripts/editor.js:1
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:24
+msgid "Postcode"
+msgstr "Postleitzahl (1000-9999)"
 
 #. Author of the plugin
 msgid "Say Hello GmbH"
