@@ -60,10 +60,17 @@ spl_autoload_register(function ($class) {
 // Function to load plugin translations
 function load_gemport_search_translations()
 {
-	load_plugin_textdomain('shp_gemport_search', false, dirname(plugin_basename(__FILE__)) . '/languages');
+	load_plugin_textdomain('shp_gemport_search', false, plugin_dir_path(__FILE__) . 'languages');
 }
-
 add_action('plugins_loaded', 'load_gemport_search_translations');
+
+function gemport_set_script_translations()
+{
+	$script_handle = generate_block_asset_handle('shp/gemport-search', 'editorScript');
+	wp_set_script_translations($script_handle, 'shp_gemport_search', plugin_dir_path(__FILE__) . 'languages');
+}
+add_action('init', 'gemport_set_script_translations', 100);
+
 
 $block_search = new SayHello\GemportSearch\Blocks\GemportSearch\Block();
 $block_search->run();
