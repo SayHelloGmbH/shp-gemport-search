@@ -36,6 +36,8 @@ The JavaScript file contains all of the dynamic custom code, including React 18.
 
 ### Implementation
 
+Use the file _assets/react/search.min.js_ from this Github repository. (Do not hotlink it to this repository, as the file is not publicly accessible from its URL here.)
+
 The script should be added to the HTML page using a `script` tag in the usual way. The script searches for matching HTML elements on the page using the standard `DOMContentLoaded` browser event and it's recommended to enqueue the script at the end of the `body`. Using `defer` or `async` to load the script may cause event timing issues.
 
     <script src="https://FULL_PATH_TO_FOLDER/search.min.js"></script>
