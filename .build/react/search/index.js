@@ -8,8 +8,6 @@ import { ListView, FormView } from './_view';
 const App = ({ element }) => {
 	const { classNameBase, generation, postcode, translations } = element.dataset;
 
-	console.log(element.dataset);
-
 	const [dataPostcode] = useState(postcode || '');
 	const [dataSearch, setDataSearch] = useState('');
 	const [initialRender, setInitialRender] = useState(true);
