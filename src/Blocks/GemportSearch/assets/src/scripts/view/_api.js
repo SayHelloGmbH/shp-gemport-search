@@ -71,11 +71,10 @@ export const useApiGet = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then((response) => {
+			.then(async (response) => {
 				if (!response.ok) {
-					throw Error({
-						status: response.status,
-						text: response.statusText || '',
+					return response.json().then((errorJson) => {
+						throw new Error(errorJson.error);
 					});
 				}
 				return response.json();
@@ -89,7 +88,7 @@ export const useApiGet = () => {
 			.catch((error) => {
 				setData({
 					state: apiStates.ERROR,
-					error: error.statusText || 'fetch failed',
+					error: error.message || 'Unable to fetch data',
 				});
 			});
 	};
