@@ -22,10 +22,12 @@ $translations = [
 
 $translations_json = json_encode($translations);
 
-$script_file = plugin_dir_url('shp-gemport-search/shp-gemport-search.php') . 'assets/react/search.min.js';
+$script_url = plugin_dir_url('shp-gemport-search/shp-gemport-search.php') . 'assets/react/search.min.js';
+$script_path = str_replace('https://' . $_SERVER['HTTP_HOST'], $_SERVER['DOCUMENT_ROOT'], $script_url);
+$script_version = filemtime($script_path);
 $script_handle = str_replace('/', '-', $block->name);
 
-wp_enqueue_script($script_handle, $script_file, [], null, true);
+wp_enqueue_script($script_handle, $script_url, [], $script_version, true);
 
 ?>
 <div <?php echo $block_wrapper_attributes; ?>>
