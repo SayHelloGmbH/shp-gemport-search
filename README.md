@@ -14,6 +14,11 @@ The result list is then pulled from the Gemport API on form submission without r
 
 Because the interface requires the use of asynchronous JavaScript, it cannot work if JavaScript is disabled or unavailable in the browser.
 
+### Version requirements
+
+-   WordPress 6.4.3 or 6.5
+-   PHP 8.1
+
 ### API URLs
 
 For the form:
