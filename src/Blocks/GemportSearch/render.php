@@ -22,6 +22,8 @@ $translations = [
 
 $translations_json = json_encode($translations);
 
+wp_enqueue_script('xxxxx', 'https://gemport.local/wp-content/plugins/shp-gemport-search/assets/preact/search.min.js', [], null, true);
+
 ?>
 <div <?php echo $block_wrapper_attributes; ?>>
 	<div class="<?php echo $classname_default; ?>__wrapper" data-gemport-search data-class-name-base="<?php echo $classname_default; ?>" data-generation="<?php echo $generation; ?>" data-postcode="<?php echo $postcode; ?>" data-translations="<?php echo esc_attr($translations_json); ?>"></div>

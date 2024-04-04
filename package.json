@@ -37,6 +37,8 @@
 		"gulp-svgmin": "^4.1.0",
 		"gulp-uglify": "^3.0.2",
 		"path": "^0.12.7",
+		"preact": "^10.20.1",
+		"preact-dom": "^1.0.1",
 		"sass": "^1.66.1",
 		"sass-loader": "^13.3.2",
 		"style-loader": "^3.3.3",
