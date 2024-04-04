@@ -13,6 +13,7 @@ const App = ({ element }) => {
 	const [initialRender, setInitialRender] = useState(true);
 	const [listData, setListData] = useState([]);
 	const [selectedThemes, setSelectedThemes] = useState([]);
+	const [viewError, setViewError] = useState('');
 	const [viewMode, setViewMode] = useState('form');
 	const themesEndpoint = useMemo(() => `https://gemport.ch/gemport/public/api/themes?generation=${generation}`, []);
 	const selectedThemesString = selectedThemes.join(',');
@@ -81,6 +82,8 @@ const App = ({ element }) => {
 		themesEndpoint,
 		translations: JSON.parse(translations) || {},
 		viewMode,
+		viewError,
+		setViewError,
 	};
 
 	if (state === apiStates.LOADING) {

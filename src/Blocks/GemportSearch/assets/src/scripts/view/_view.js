@@ -11,11 +11,23 @@ export const FormView = () => {
 
 	const context = useContext(AppContext);
 
-	const { classNameBase, data, dataSearch, selectedThemes, setDataSearch, setSelectedThemes, setListData, setViewMode, listEndpoint, translations } = context;
-
-	console.warn(translations);
+	const {
+		classNameBase,
+		data,
+		dataSearch,
+		selectedThemes,
+		setDataSearch,
+		setSelectedThemes,
+		setListData,
+		setViewMode,
+		listEndpoint,
+		translations,
+		viewError,
+		setViewError,
+	} = context;
 
 	const fetchListData = () => {
+		setViewError('');
 		fetchData(listEndpoint);
 	};
 
@@ -25,7 +37,7 @@ export const FormView = () => {
 				setListData(null);
 				break;
 			case apiStates.ERROR:
-				console.error('Gemport API error', apiData);
+				setViewError(apiData.error);
 				break;
 			case apiStates.SUCCESS:
 				setListData(apiData.data);
@@ -33,6 +45,17 @@ export const FormView = () => {
 				break;
 		}
 	}, [apiData]);
+
+	if (viewError) {
+		return (
+			<>
+				<div className={`${classNameBase}__error-wrapper`}>
+					<p className={`${classNameBase}__error-text`} dangerouslySetInnerHTML={{ __html: viewError }} />
+				</div>
+				<BackButton />
+			</>
+		);
+	}
 
 	return (
 		<form
@@ -77,17 +100,28 @@ export const FormView = () => {
 	);
 };
 
+const BackButton = () => {
+	const context = useContext(AppContext);
+	const { classNameBase, translations, setViewMode, setViewError } = context;
+
+	return (
+		<Buttons classNameBase={classNameBase}>
+			<Button
+				classNameBase={classNameBase}
+				buttonKey="back"
+				onClick={() => {
+					setViewError('');
+					setViewMode('form');
+				}}
+				label={translations.view_search_form}
+			/>
+		</Buttons>
+	);
+};
+
 export const ListView = () => {
 	const context = useContext(AppContext);
 	const { listData, classNameBase, translations, setViewMode } = context;
-
-	const BackButton = () => {
-		return (
-			<Buttons classNameBase={classNameBase}>
-				<Button classNameBase={classNameBase} buttonKey="back" onClick={() => setViewMode('form')} label={translations.view_search_form} />
-			</Buttons>
-		);
-	};
 
 	return (
 		<div className={`${classNameBase}__list`}>
