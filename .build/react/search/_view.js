@@ -1,5 +1,4 @@
-import { useContext, useEffect } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import React, { useContext, useEffect } from 'react';
 
 import { useApiGet, apiStates } from './_api';
 import { Button, Buttons } from './_button';

@@ -1,4 +1,4 @@
-import { useEffect, useState } from '@wordpress/element';
+import React, { useState, useEffect } from 'react';
 
 export const apiStates = {
 	IDLE: 'IDLE',

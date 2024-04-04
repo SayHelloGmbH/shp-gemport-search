@@ -1,5 +1,5 @@
-import { render, useEffect, useMemo, useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
+import React, { useState, useEffect, useMemo } from 'react';
+import ReactDOM from 'react-dom';
 
 import { AppContext } from './_context';
 import { apiGet, apiStates } from './_api';
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const elements = document.querySelectorAll('[data-gemport-search]');
 	if (elements.length) {
 		elements.forEach((element) => {
-			render(<App element={element} />, element);
+			ReactDOM.render(<App element={element} />, element);
 		});
 	}
 });
