@@ -12,17 +12,16 @@ function getDirectories(path) {
 
 export const task = (config) => {
 	return new Promise((resolve) => {
-		const bundles = getDirectories(`${config.assetsBuild}preact/`);
+		const bundles = getDirectories(`${config.assetsBuild}react/`);
 		const entry = {};
 		bundles.forEach((bundle) => {
-			const filePath = `${config.assetsBuild}preact/${bundle}/index.js`;
+			const filePath = `${config.assetsBuild}react/${bundle}/index.js`;
 			if (fs.existsSync(filePath)) {
 				entry[bundle] = './' + filePath;
 			}
 		});
 
-		gulp.src([`${config.assetsBuild}preact/*`])
-			// Webpack
+		gulp.src([`${config.assetsBuild}react/*`])
 			.pipe(
 				gulpWebpack({
 					entry,
@@ -51,13 +50,13 @@ export const task = (config) => {
 					suffix: '.min',
 				})
 			)
-			.pipe(gulp.dest(config.assetsDir + 'preact/'))
+			.pipe(gulp.dest(config.assetsDir + 'react/'))
 
 			// Minify
 			.pipe(uglify())
 
 			.on('error', config.errorLog)
-			.pipe(gulp.dest(config.assetsDir + 'preact/'));
+			.pipe(gulp.dest(config.assetsDir + 'react/'));
 		resolve();
 	});
 };

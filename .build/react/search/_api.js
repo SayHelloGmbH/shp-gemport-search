@@ -1,5 +1,4 @@
-import { h } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
+import React, { useState, useEffect } from 'react';
 
 export const apiStates = {
 	IDLE: 'IDLE',

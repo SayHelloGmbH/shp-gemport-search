@@ -1,5 +1,5 @@
-import { h, render } from 'preact';
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import React, { useState, useEffect, useMemo } from 'react';
+import ReactDOM from 'react-dom';
 
 import { AppContext } from './_context';
 import { apiGet, apiStates } from './_api';
@@ -7,6 +7,8 @@ import { ListView, FormView } from './_view';
 
 const App = ({ element }) => {
 	const { classNameBase, generation, postcode, translations } = element.dataset;
+
+	console.log(element.dataset);
 
 	const [dataPostcode] = useState(postcode || '');
 	const [dataSearch, setDataSearch] = useState('');
@@ -108,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const elements = document.querySelectorAll('[data-gemport-search]');
 	if (elements.length) {
 		elements.forEach((element) => {
-			render(<App />, element);
+			ReactDOM.render(<App element={element} />, element);
 		});
 	}
 });

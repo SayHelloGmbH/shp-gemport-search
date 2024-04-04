@@ -1,5 +1,4 @@
-import { h } from 'preact';
-import { useRef } from 'preact/hooks';
+import React, { useRef } from 'react';
 
 export const Buttons = ({ children, classNameBase }) => {
 	const elementRef = useRef(null);

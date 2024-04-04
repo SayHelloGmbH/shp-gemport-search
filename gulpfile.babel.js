@@ -28,7 +28,7 @@ export const scripts = () => taskScripts(config);
 export const watch = () => {
 	const settings = { usePolling: true, interval: 100 };
 
-	gulp.watch(config.assetsBuild + 'preact/**/*.{scss,css,js}', settings, gulp.series(scripts));
+	gulp.watch(config.assetsBuild + 'react/**/*.{scss,css,js}', settings, gulp.series(scripts));
 	gulp.watch(config.blockStylesSrc, settings, gulp.series(block_styles));
 	gulp.watch(config.blockScriptsSrc + '/**/*.{scss,js}', settings, gulp.series(block_scripts));
 };

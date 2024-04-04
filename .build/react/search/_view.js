@@ -1,5 +1,4 @@
-import { h } from 'preact';
-import { useContext, useEffect } from 'preact/hooks';
+import React, { useContext, useEffect } from 'react';
 
 import { useApiGet, apiStates } from './_api';
 import { Button, Buttons } from './_button';
