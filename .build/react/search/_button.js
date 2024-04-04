@@ -1,4 +1,4 @@
-import { useRef } from '@wordpress/element';
+import React, { useRef } from 'react';
 
 export const Buttons = ({ children, classNameBase }) => {
 	const elementRef = useRef(null);

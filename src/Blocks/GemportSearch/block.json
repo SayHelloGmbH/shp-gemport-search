@@ -27,7 +27,6 @@
 		"multiple": false
 	},
 	"editorScript": "file:./assets/dist/scripts/editor.js",
-	"viewScript": "file:./assets/dist/scripts/view.js",
 	"style": ["file:./assets/dist/styles/shared/index.min.css"],
 	"render": "./render.php"
 }
