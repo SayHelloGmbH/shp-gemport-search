@@ -8,6 +8,7 @@ import { ListView, FormView } from './_view';
 const App = ({ element }) => {
 	const { classNameBase, generation, postcode, translations } = element.dataset;
 
+	const [allThemes, setAllThemes] = useState([]);
 	const [dataPostcode] = useState(postcode || '');
 	const [dataSearch, setDataSearch] = useState('');
 	const [initialRender, setInitialRender] = useState(true);
@@ -21,16 +22,23 @@ const App = ({ element }) => {
 	const listEndpoint = useMemo(() => {
 		let url = `https://gemport.ch/gemport/public/api/offerings?zipcode=${dataPostcode}`;
 
+		// Use selectedThemes OR all themes if the user has selected no themes
 		if (selectedThemesString) {
 			url += `&theme=[${selectedThemesString}]`;
+		} else if (allThemes && allThemes.length) {
+			let themeIds = allThemes.map((theme) => theme.id).join(',');
+			themeIds = themeIds.split(',').sort().join(',');
+			url += `&theme=[${themeIds}]`;
 		}
 
 		if (dataSearch) {
 			url += `&search=${dataSearch}`;
 		}
 
+		console.log(url);
+
 		return url;
-	}, [dataPostcode, selectedThemesString, dataSearch]);
+	}, [dataPostcode, selectedThemesString, dataSearch, allThemes]);
 
 	// On component mount
 	useEffect(() => {
@@ -65,6 +73,10 @@ const App = ({ element }) => {
 	}, [viewMode, element, initialRender]);
 
 	const { data, error, state } = apiGet(themesEndpoint);
+
+	useEffect(() => {
+		setAllThemes(data);
+	}, [data]);
 
 	const context = {
 		classNameBase,
