@@ -27,7 +27,7 @@ For the form:
 
 For the list:
 
--   https://gemport.ch/gemport/public/api/offerings?zipcode=3110&theme=[21,22] (ZIP code which has been added editorially as a block attribute. This field does not appear in the frontend. The theme parameter is populated by the user checkbox selection in the form.)
+-   https://gemport.ch/gemport/public/api/offerings?zipcode=3110&theme=[21,22] (ZIP code which has been added editorially as a block attribute. This field does not appear in the frontend. The theme parameter is populated by the user checkbox selection in the form. If no themes are selected by the user, the API call will include ALL themes listed in the interface.)
 -   https://gemport.ch/gemport/public/api/offerings?zipcode=3110&search=tiersitter (Alternative request which includes a search parameter, which the user has entered in the frontend.)
 
 ## Use as a standalone script

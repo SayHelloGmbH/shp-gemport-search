@@ -4,7 +4,7 @@
  * Plugin URI:        https://bitbucket.org/sayhellogmbh/shp-gemport-search/
  * Description:       Dynamic search form and results list, which draws data from the Gemport API.
  * Author:            Say Hello GmbH
- * Version:           0.2.0
+ * Version:           0.3.0
  * Author URI:        https://sayhello.ch/
  * Text Domain:       shp_gemport_search
  * Domain Path:       /languages
