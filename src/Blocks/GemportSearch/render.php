@@ -22,9 +22,21 @@ $translations = [
 
 $translations_json = json_encode($translations);
 
-$script_url = plugin_dir_url('shp-gemport-search/shp-gemport-search.php') . 'assets/react/search.min.js';
-$script_path = str_replace('https://' . $_SERVER['HTTP_HOST'], $_SERVER['DOCUMENT_ROOT'], $script_url);
-$script_version = filemtime($script_path);
+$protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+$script_url = plugin_dir_url(SHP_GEMPORT_SEARCH_PATH) . 'assets/react/search.min.js';
+$script_path = str_replace($protocol . $_SERVER['HTTP_HOST'], $_SERVER['DOCUMENT_ROOT'], $script_url);
+
+if (file_exists($script_path)) {
+	$script_version = filemtime($script_path);
+} else {
+	if (!function_exists('get_plugin_data')) {
+		require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+	}
+
+	$plugin_data = get_plugin_data(SHP_GEMPORT_SEARCH_PATH) ?? [];
+	$script_version = (float) ($plugin_data['Version'] ?? 0) * 1000;
+}
+
 $script_handle = str_replace('/', '-', $block->name);
 
 wp_enqueue_script($script_handle, $script_url, [], $script_version, true);
