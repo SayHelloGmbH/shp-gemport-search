@@ -22,10 +22,12 @@ const App = ({ element }) => {
 	const listEndpoint = useMemo(() => {
 		let url = `https://gemport.ch/gemport/public/api/offerings?zipcode=${dataPostcode}`;
 
-		// Use selectedThemes OR all themes if the user has selected no themes
+		// Use selectedThemes
+		// OR all themes if the user has selected no themes AND there is no search term
+
 		if (selectedThemesString) {
 			url += `&theme=[${selectedThemesString}]`;
-		} else if (allThemes && allThemes.length) {
+		} else if (allThemes && allThemes.length && !dataSearch) {
 			let themeIds = allThemes.map((theme) => theme.id).join(',');
 			themeIds = themeIds.split(',').sort().join(',');
 			url += `&theme=[${themeIds}]`;
@@ -34,8 +36,6 @@ const App = ({ element }) => {
 		if (dataSearch) {
 			url += `&search=${dataSearch}`;
 		}
-
-		console.log(url);
 
 		return url;
 	}, [dataPostcode, selectedThemesString, dataSearch, allThemes]);
