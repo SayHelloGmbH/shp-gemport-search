@@ -20,15 +20,19 @@ Because the interface requires the use of asynchronous JavaScript, it cannot wor
 
 ### API URLs
 
-For the form:
+#### Form
 
 -   https://gemport.ch/gemport/public/api/themes (all themes)
 -   https://gemport.ch/gemport/public/api/themes?generation=2 (example for Generation 2)
 
-For the list:
+#### List
 
--   https://gemport.ch/gemport/public/api/offerings?zipcode=3110&theme=[21,22] (ZIP code which has been added editorially as a block attribute. This field does not appear in the frontend. The theme parameter is populated by the user checkbox selection in the form. If no themes are selected by the user, the API call will include ALL themes listed in the interface.)
--   https://gemport.ch/gemport/public/api/offerings?zipcode=3110&search=tiersitter (Alternative request which includes a search parameter, which the user has entered in the frontend.)
+-   https://gemport.ch/gemport/public/api/offerings?zipcode=3110&theme=[21,22]
+    -   ZIP code which has been added editorially as a block attribute. This field does not appear in the frontend.
+    -   The theme parameter is populated by the user checkbox selection in the form.
+    -   If no themes are selected by the user, the API call will include **all** themes listed in the interface, but only if **no** search term has been specified.
+-   https://gemport.ch/gemport/public/api/offerings?zipcode=3110&search=tiersitter
+    -   Alternative request which includes a search parameter, which the user has entered in the frontend.
 
 ## Use as a standalone script
 
