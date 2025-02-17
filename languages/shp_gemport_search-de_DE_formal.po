@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Offers from the Gemport API\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-02 15:58+0000\n"
-"PO-Revision-Date: 2025-02-17 16:14+0000\n"
+"PO-Revision-Date: 2025-02-17 17:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch (Sie)\n"
 "Language: de_DE_formal\n"
@@ -42,7 +42,7 @@ msgstr "Angebote der Gemport API"
 msgid "Contact:"
 msgstr "Kontakt:"
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:61
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:63
 msgid "Country"
 msgstr "Land"
 
@@ -53,15 +53,15 @@ msgstr ""
 "Dynamisches Suchformular und Ergebnisliste, die Daten aus der Gemport-API "
 "bezieht."
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:50
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:53
 msgid "Gemport Search/List Settings"
 msgstr "Einstellungen Gemport Suche/Liste"
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:71
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:73
 msgid "Generation"
 msgstr "Generation"
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:67
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:69
 msgid "Germany"
 msgstr "Deutschland"
 
@@ -73,12 +73,24 @@ msgstr "https://bitbucket.org/sayhellogmbh/shp-gemport-search/"
 msgid "https://sayhello.ch/"
 msgstr "https://sayhello.ch/"
 
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:40
+msgid "Invalid German postcode"
+msgstr "Dies ist keine gültige Deutsche Postleitzahl"
+
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:42
+msgid "Invalid postcode (Swiss or German)"
+msgstr "Dies ist keine gültige Postleitzahl (Schweiz / Deutschland)"
+
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:38
+msgid "Invalid Swiss postcode"
+msgstr "Dies ist keine gültige Schweizer Postleitzahl"
+
 #: src/Blocks/GemportSearch/render.php:17
 msgid "More information"
 msgstr "Weitere Information"
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:65
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:75
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:67
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:77
 msgid "No constraint"
 msgstr "Keine Einschränkung"
 
@@ -94,11 +106,11 @@ msgstr "Angebote der Gemport API"
 msgid "Optional search text"
 msgstr "Optionaler Suchbegriff"
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:87
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:90
 msgid "Placeholder for the Gemport search/list"
 msgstr "Platzhalter für die Gemport-Suche/Liste"
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:53
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:56
 msgid "Postcode"
 msgstr "Postleitzahl"
 
@@ -110,26 +122,14 @@ msgstr "Say Hello GmbH"
 msgid "Search offers"
 msgstr "Angebote durchsuchen"
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:66
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:68
 msgid "Switzerland"
 msgstr "Schweiz"
 
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:59
+#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:61
 msgid "Town"
 msgstr "Ortschaft"
 
 #: src/Blocks/GemportSearch/render.php:21
 msgid "View search form"
 msgstr "Suchformular anzeigen"
-
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:41
-msgid "⛔️ Invalid German postcode"
-msgstr "⛔️ Dies ist keine gültige Deutsche Postleitzahl"
-
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:43
-msgid "⛔️ Invalid postcode (Swiss or German)"
-msgstr "⛔️ Dies ist keine gültige Postleitzahl (Schweiz / Deutschland)"
-
-#: src/Blocks/GemportSearch/assets/src/scripts/editor/index.js:39
-msgid "⛔️ Invalid Swiss postcode"
-msgstr "⛔️ Dies ist keine gültige Schweizer Postleitzahl"
