@@ -40,7 +40,7 @@ const App = ({ element }) => {
 		}
 
 		if (dataTown && dataPostcode) {
-			url += `&town=${dataTown}%20(CH-${dataPostcode})`;
+			url += `&town=${dataTown} (CH-${dataPostcode})`;
 		}
 
 		if (country) {
@@ -68,6 +68,7 @@ const App = ({ element }) => {
 		const matches = cssValue.match(regex);
 
 		let result = parseInt(cssValue, 10);
+
 		if (matches) {
 			result = matches.reduce((acc, val) => acc + parseInt(val, 10), 0);
 		}
