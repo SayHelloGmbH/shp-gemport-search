@@ -6,10 +6,12 @@ import { apiGet, apiStates } from './_api';
 import { ListView, FormView } from './_view';
 
 const App = ({ element }) => {
-	const { classNameBase, generation, postcode, translations } = element.dataset;
+	const { classNameBase, country, generation, postcode, town, translations } = element.dataset;
 
 	const [allThemes, setAllThemes] = useState([]);
+	const [dataCountry] = useState(country || '');
 	const [dataPostcode] = useState(postcode || '');
+	const [dataTown] = useState(town || '');
 	const [dataSearch, setDataSearch] = useState('');
 	const [initialRender, setInitialRender] = useState(true);
 	const [listData, setListData] = useState([]);
@@ -37,8 +39,16 @@ const App = ({ element }) => {
 			url += `&search=${dataSearch}`;
 		}
 
+		if (dataTown && dataPostcode) {
+			url += `&town=${dataTown}%20(CH-${dataPostcode})`;
+		}
+
+		if (country) {
+			url += `&country=${dataCountry}`;
+		}
+
 		return url;
-	}, [dataPostcode, selectedThemesString, dataSearch, allThemes]);
+	}, [dataPostcode, dataTown, selectedThemesString, dataSearch, allThemes]);
 
 	// On component mount
 	useEffect(() => {
@@ -82,8 +92,10 @@ const App = ({ element }) => {
 		classNameBase,
 		element,
 		data,
+		dataCountry,
 		dataPostcode,
 		dataSearch,
+		dataTown,
 		listData,
 		listEndpoint,
 		selectedThemes,
