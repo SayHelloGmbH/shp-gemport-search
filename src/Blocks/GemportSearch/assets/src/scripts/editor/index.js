@@ -33,7 +33,7 @@ registerBlockType(block_name, {
 
 		let postcode_help = null;
 
-		if (!isValidPostcode(postcode, country)) {
+		if (postcode && !isValidPostcode(postcode, country)) {
 			if (country === 'CH') {
 				postcode_help = __('Invalid Swiss postcode', 'shp_gemport_search');
 			} else if (country === 'DE') {
