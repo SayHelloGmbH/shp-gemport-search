@@ -40,7 +40,9 @@ const App = ({ element }) => {
 		}
 
 		if (dataTown && dataPostcode) {
-			url += `&town=${dataTown} (CH-${dataPostcode})`;
+			const dataCountryUpper = dataCountry.toUpperCase();
+
+			url += `&town=${dataTown} (${dataCountryUpper}-${dataPostcode})`;
 		}
 
 		if (country) {
