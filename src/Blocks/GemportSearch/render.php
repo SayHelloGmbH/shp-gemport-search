@@ -3,12 +3,18 @@
 $block_wrapper_attributes = get_block_wrapper_attributes();
 $classname_default = wp_get_block_default_classname($block->name);
 
+$country = esc_html($attributes['country'] ?? '');
 $generation = (int) $attributes['generation'] ?? '';
 $postcode = $attributes['postcode'] ?? '';
+$town = esc_html($attributes['town'] ?? '');
 
 // check to see that $postcode is a four-digit numeric between 1000 and 9999
 if (!is_numeric($postcode) || strlen($postcode) !== 4) {
 	$postcode = '';
+}
+
+if (!in_array($country, ['CH', 'DE'])) {
+	$country = '';
 }
 
 $translations = [
@@ -43,5 +49,5 @@ wp_enqueue_script($script_handle, $script_url, [], $script_version, true);
 
 ?>
 <div <?php echo $block_wrapper_attributes; ?>>
-	<div class="<?php echo $classname_default; ?>__wrapper" data-gemport-search data-class-name-base="<?php echo $classname_default; ?>" data-generation="<?php echo $generation; ?>" data-postcode="<?php echo $postcode; ?>" data-translations="<?php echo esc_attr($translations_json); ?>"></div>
+	<div class="<?php echo $classname_default; ?>__wrapper" data-gemport-search data-class-name-base="<?php echo $classname_default; ?>" data-generation="<?php echo $generation; ?>" data-postcode="<?php echo $postcode; ?>" data-town="<?php echo $town; ?>" data-country="<?php echo $country; ?>" data-translations="<?php echo esc_attr($translations_json); ?>"></div>
 </div>

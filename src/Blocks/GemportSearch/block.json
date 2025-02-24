@@ -12,13 +12,18 @@
 		"align": {
 			"type": "string"
 		},
+		"country": {
+			"type": "string"
+		},
 		"generation": {
 			"type": "number",
 			"default": 0
 		},
+		"town": {
+			"type": "string"
+		},
 		"postcode": {
-			"type": "number",
-			"default": 1000
+			"type": "string"
 		}
 	},
 	"supports": {
@@ -27,6 +32,7 @@
 		"multiple": false
 	},
 	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"editorStyle": "file:./assets/dist/styles/editor/index.min.css",
 	"style": ["file:./assets/dist/styles/shared/index.min.css"],
 	"render": "./render.php"
 }
