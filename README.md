@@ -13,7 +13,7 @@ The result list is then pulled from the Gemport API on form submission without r
 
 Because the interface requires the use of asynchronous JavaScript, it cannot work if JavaScript is disabled or unavailable in the browser.
 
-### Version requirements
+### Minimum version requirements
 
 -   WordPress 6.4.3 or 6.5
 -   PHP 8.1
@@ -52,10 +52,14 @@ Add an HTML element to the page in position which is appropriate for your needs.
 
 The main data attribute `data-gemport-search` (with no value) is used to mark the HTML element as the wrapper for the app.
 
+The values "data-place" and "data-country" are optional. If provided, then these will be reformatted for the API request along with the postcode to the format `Münsingen (CH-3110)`.
+
 -   `data-gemport-search`
 -   `data-class-name-base="shp-gemport-search"`
 -   `data-generation="2"`
 -   `data-postcode="3110"`
+-   `data-place="Münsingen"`
+-   `data-country="CH"`
 
 #### Texts / translations
 
@@ -87,6 +91,8 @@ $translations_json = json_encode($translations);
 	data-class-name-base="shp-gemport-search"
 	data-generation="2"
 	data-postcode="3110"
+	data-place="Münsingen"
+	data-country="CH"
 	data-translations="<?php echo htmlspecialchars($translations_json, ENT_QUOTES, 'UTF-8'); ?>"
 	></div>
 ```

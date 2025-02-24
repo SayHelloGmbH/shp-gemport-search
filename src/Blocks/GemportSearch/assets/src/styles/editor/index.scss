@@ -1,4 +1,8 @@
 .wp-block-shp-gemport-search {
+	&__error {
+		color: red;
+	}
+
 	&__placeholder {
 		padding: 1em;
 		border: 2px dotted #ccc;

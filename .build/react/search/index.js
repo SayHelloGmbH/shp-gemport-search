@@ -6,10 +6,12 @@ import { apiGet, apiStates } from './_api';
 import { ListView, FormView } from './_view';
 
 const App = ({ element }) => {
-	const { classNameBase, generation, postcode, translations } = element.dataset;
+	const { classNameBase, country, generation, postcode, town, translations } = element.dataset;
 
 	const [allThemes, setAllThemes] = useState([]);
+	const [dataCountry] = useState(country || '');
 	const [dataPostcode] = useState(postcode || '');
+	const [dataTown] = useState(town || '');
 	const [dataSearch, setDataSearch] = useState('');
 	const [initialRender, setInitialRender] = useState(true);
 	const [listData, setListData] = useState([]);
@@ -37,8 +39,18 @@ const App = ({ element }) => {
 			url += `&search=${dataSearch}`;
 		}
 
+		if (dataTown && dataPostcode) {
+			const dataCountryUpper = dataCountry.toUpperCase();
+
+			url += `&town=${dataTown} (${dataCountryUpper}-${dataPostcode})`;
+		}
+
+		if (country) {
+			url += `&country=${dataCountry}`;
+		}
+
 		return url;
-	}, [dataPostcode, selectedThemesString, dataSearch, allThemes]);
+	}, [dataPostcode, dataTown, selectedThemesString, dataSearch, allThemes]);
 
 	// On component mount
 	useEffect(() => {
@@ -58,6 +70,7 @@ const App = ({ element }) => {
 		const matches = cssValue.match(regex);
 
 		let result = parseInt(cssValue, 10);
+
 		if (matches) {
 			result = matches.reduce((acc, val) => acc + parseInt(val, 10), 0);
 		}
@@ -82,8 +95,10 @@ const App = ({ element }) => {
 		classNameBase,
 		element,
 		data,
+		dataCountry,
 		dataPostcode,
 		dataSearch,
+		dataTown,
 		listData,
 		listEndpoint,
 		selectedThemes,
