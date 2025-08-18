@@ -29,7 +29,7 @@ const isValidPostcode = (postcode, country) => {
 registerBlockType(block_name, {
 	edit: (props) => {
 		const { setAttributes, attributes } = props;
-		const { country, generation, postcode, town } = attributes;
+		const { columns, country, generation, postcode, town } = attributes;
 
 		let postcode_help = null;
 
@@ -78,6 +78,15 @@ registerBlockType(block_name, {
 									{ label: '1', value: 1 },
 									{ label: '2', value: 2 },
 									{ label: '3', value: 3 },
+								]}
+							/>
+							<SelectControl
+								label={__('Columns (Desktopansicht)', 'shp_gemport_search')}
+								value={columns}
+								onChange={(value) => setAttributes({ columns: parseInt(value) })}
+								options={[
+									{ label: '1', value: 1 },
+									{ label: '2', value: 2 },
 								]}
 							/>
 						</PanelBody>
