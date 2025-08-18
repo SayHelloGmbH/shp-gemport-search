@@ -3,10 +3,19 @@
 $block_wrapper_attributes = get_block_wrapper_attributes();
 $classname_default = wp_get_block_default_classname($block->name);
 
+$columns = (int) $attributes['columns'];
+$columns = max(1, min(2, $columns)); // min 1, max 2
+
 $country = esc_html($attributes['country'] ?? '');
 $generation = (int) $attributes['generation'] ?? '';
 $postcode = $attributes['postcode'] ?? '';
 $town = esc_html($attributes['town'] ?? '');
+
+$columns_style = '';
+
+if ($columns !== 2) {
+	$columns_style = sprintf('--gemport-search--entries-columns: %d', $columns);
+}
 
 // check to see that $postcode is a four-digit numeric between 1000 and 9999
 if (!is_numeric($postcode) || strlen($postcode) !== 4) {
@@ -47,7 +56,15 @@ $script_handle = str_replace('/', '-', $block->name);
 
 wp_enqueue_script($script_handle, $script_url, [], $script_version, true);
 
+$style = '';
+
+dump($columns_style);
+
+if (!empty($columns_style)) {
+	$style .= sprintf(' style="%s"', esc_attr($columns_style));
+}
+
 ?>
-<div <?php echo $block_wrapper_attributes; ?>>
+<div <?php echo $block_wrapper_attributes . $style; ?>>
 	<div class="<?php echo $classname_default; ?>__wrapper" data-gemport-search data-class-name-base="<?php echo $classname_default; ?>" data-generation="<?php echo $generation; ?>" data-postcode="<?php echo $postcode; ?>" data-town="<?php echo $town; ?>" data-country="<?php echo $country; ?>" data-translations="<?php echo esc_attr($translations_json); ?>"></div>
 </div>

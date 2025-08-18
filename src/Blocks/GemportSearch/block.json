@@ -12,6 +12,10 @@
 		"align": {
 			"type": "string"
 		},
+		"columns": {
+			"type": "number",
+			"default": 2
+		},
 		"country": {
 			"type": "string"
 		},
