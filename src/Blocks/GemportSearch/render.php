@@ -58,8 +58,6 @@ wp_enqueue_script($script_handle, $script_url, [], $script_version, true);
 
 $style = '';
 
-dump($columns_style);
-
 if (!empty($columns_style)) {
 	$style .= sprintf(' style="%s"', esc_attr($columns_style));
 }
