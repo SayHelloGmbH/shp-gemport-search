@@ -14,6 +14,7 @@ export const FormView = () => {
 		classNameBase,
 		data,
 		dataSearch,
+		setInitialRender,
 		selectedThemes,
 		setDataSearch,
 		setSelectedThemes,
@@ -27,6 +28,7 @@ export const FormView = () => {
 
 	const fetchListData = () => {
 		setViewError('');
+		setInitialRender(false);
 		fetchData(listEndpoint);
 	};
 
