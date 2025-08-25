@@ -52,11 +52,6 @@ const App = ({ element }) => {
 		return url;
 	}, [dataPostcode, dataTown, selectedThemesString, dataSearch, allThemes]);
 
-	// On component mount
-	useEffect(() => {
-		setInitialRender(false);
-	}, []);
-
 	// Scroll to the top of the element which switching modes
 	useEffect(() => {
 		if (!element || initialRender) {
@@ -111,6 +106,7 @@ const App = ({ element }) => {
 		viewMode,
 		viewError,
 		setViewError,
+		setInitialRender,
 	};
 
 	if (state === apiStates.LOADING) {
